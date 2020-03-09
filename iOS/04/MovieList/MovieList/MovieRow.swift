@@ -14,7 +14,9 @@ struct MovieRow: View {
     
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .leading, vertical: .bottom)) {
-            Image(movie.imageName).clipped()
+            Image(movie.imageName)
+                .resizable()
+                .frame(height: 250)
             Text(movie.title)
                 .font(.largeTitle)
                 .padding(.all)

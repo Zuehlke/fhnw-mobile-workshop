@@ -14,20 +14,25 @@ struct ContentView: View {
     
     var body: some View {
         VStack{
+            
+            Spacer()
+            
             Picker(selection: $genre, label: Text("Movie Genres:")) {
                 Text(Genre.horror.name).tag(Genre.horror)
                 Text(Genre.action.name).tag(Genre.action)
                 Text(Genre.scienceFiction.name).tag(Genre.scienceFiction)
             }.pickerStyle(SegmentedPickerStyle())
             
-            Divider()
+            Spacer()
+            
+            Divider().background(Color.red)
             
             Picker(selection: $genre, label: Text("Movie Genres:")) {
                 Text(Genre.horror.name).tag(Genre.horror)
                 Text(Genre.action.name).tag(Genre.action)
                 Text(Genre.scienceFiction.name).tag(Genre.scienceFiction)
             }.pickerStyle(WheelPickerStyle())
-            
+            Spacer()
         }
     }
 }

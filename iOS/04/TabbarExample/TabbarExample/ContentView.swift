@@ -18,12 +18,12 @@ struct ContentView: View {
             }
             GreenView()
                 .tabItem{
-                    Image(systemName: "list.dash")
+                    Image(systemName: "tortoise")
                     Text("Green")
             }
             BlueView()
                 .tabItem{
-                    Image(systemName: "list.dash")
+                    Image(systemName: "tornado")
                     Text("Blue")
             }
         }
