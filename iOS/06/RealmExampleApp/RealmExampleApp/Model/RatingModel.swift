@@ -13,6 +13,10 @@ class RatingModel{
     
     let realm = try! Realm()
     
+    init() {
+        print(Realm.Configuration.defaultConfiguration.fileURL?.absoluteString ?? "realm config not found")
+    }
+    
     func ratingForMovieId(movieId: Int)->Int{
         
         let result = realm.objects(MovieRating.self).filter("movieId = %@", movieId)
@@ -23,7 +27,10 @@ class RatingModel{
         return movieRating.rating
     }
     
+    
+    
     func updateRating(movieId: Int, rating: Int){
+       
         try! realm.write {
             realm.create(MovieRating.self, value: ["movieId": movieId, "rating": rating], update: .modified)
         }

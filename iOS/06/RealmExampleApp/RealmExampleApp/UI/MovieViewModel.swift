@@ -23,10 +23,15 @@ class MovieViewModel: ObservableObject{
     }
     
     func loadNewMovies(){
-         provider?.getNewMovies(page: 1) {[weak self] movies in
-                   print("\(movies.count) new movies loaded")
-                   self?.movies.removeAll()
-            self?.movies.append(contentsOf: movies)}
+        provider?.getNewMovies(page: 1) {[weak self] movies in
+            print("\(movies.count) new movies loaded")
+            self?.movies.removeAll()
+            
+            let sortedMovies = movies.sorted(by: { (lhs, rhs) -> Bool in
+                lhs.title < rhs.title
+            })
+            
+            self?.movies.append(contentsOf: sortedMovies)}
     }
     
     func ratingForMovieId(id: Int)->Int{

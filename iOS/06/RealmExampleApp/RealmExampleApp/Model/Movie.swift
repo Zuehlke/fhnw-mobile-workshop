@@ -19,7 +19,7 @@ struct Movie: Codable, Identifiable {
     let id: Int
     let adult: Bool
     let backdropPath: String
-    let originalLanguage: OriginalLanguage
+    let originalLanguage: String
     let originalTitle: String
     let genreIDS: [Int]
     let title: String
@@ -54,9 +54,5 @@ extension Movie{
 
 }
 
-enum OriginalLanguage: String, Codable {
-    case cn = "cn"
-    case en = "en"
-    case ko = "ko"
-}
+
 
