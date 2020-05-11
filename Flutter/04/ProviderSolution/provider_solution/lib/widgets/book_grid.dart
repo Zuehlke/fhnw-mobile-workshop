@@ -19,8 +19,8 @@ class BookGrid extends StatelessWidget {
       itemCount: books.length,
       // Book-Provider registrieren (fuer einzelnes Book Objekt, damit alle Child Widgets die Listener
       // auf den Provider haben neu gebaut werden sobald Daten aendern
-      itemBuilder: (ctx, i) => ChangeNotifierProvider(
-        create: (ctx) => books[i],
+      itemBuilder: (ctx, i) => ChangeNotifierProvider.value(
+        value: books[i],
         child: BookItem(),
       ),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

@@ -12,11 +12,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // Books-Provider registrieren, damit alle Child Widgets die Listener
     // auf den Provider haben neu gebaut werden sobald Daten aendern
-    // Alternativer Aufruf:
-    // return ChangeNotifierProvider.value(
-    //  value: Books(), child: ...
     return ChangeNotifierProvider(
-      create: (ctx) => Books(),
+      create: (_) => Books(),
       child: MaterialApp(
           title: 'Book Store',
           theme:
